@@ -47,6 +47,8 @@ module.exports = function(app) {
         var minimum = Array.min(resultArray);
         var a = resultArray.indexOf(minimum);
         console.log(a, userData[a].name + " is the best match");
+        var bestMatch = {"name":userData[a].name,"photo":userData[a].photo};
+        return res.json(bestMatch);
         userData.push(req.body);
     });
     
