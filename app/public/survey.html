@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars - Express</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+</head>
+<style>
+body {
+        font-family: 'Open Sans', sans-serif;
+
+} 
+.heading{
+	background-image: url("https://static.pexels.com/photos/58592/pexels-photo-58592.jpeg");
+}
+  
+</style>
+<body>
+    <div class="container heading">
+        <div class="jumbotron text-center">
+            <h1>Friend finder</h1>
+            <h3>Take the survey and find your best match !</h3>
+            <hr>
+        </div>
+    </div>
+    <div class="container  questionBody">
+        <h2>Survey Questions</h2>
+        <p class="content">1-disagree 5-strongly agree</p>
+        <hr >
+        <p class="content">
+            About You
+        </p>
+        <p >
+            Name (Required)
+        </p>
+        <input type="text" name="" id="name" class="form-control ">
+        <p class="question">
+            Link to Photo Image (Required)
+        </p>
+        <input type="text" name="" id="pic" class="form-control">
+        <hr>
+        <form class="questions">
+        </form>
+        <button type="button" class="btn btn-primary" id="submit">Submit</button>
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var Arrayquestion = [
+            "You always find your mind drifting off to other places.",
+            "You are independent in most daily activities",
+            "Reading a book helps you relax.",
+            "You are very emotionally attached to many objects.",
+            "You have high expectations in life.",
+            "You feel like it is ok to break rules for a good cause.",
+            "You like exploring new things.",
+            "Success is the most important thing in life for you.",
+            "You enjoy having most of the power or being the leader.",
+            "You could name more positive than negative traits about yourself."
+        ];
+        for (var j = 0; j < Arrayquestion.length; j++) {
+            var para = document.createElement("p");
+            para.className = "question";
+            var paragraph = document.createElement("p");
+            var questionNo = document.createTextNode("Question " + (j + 1));
+            paragraph.appendChild(questionNo);
+            paragraph.className = "content";
+            var question = document.createTextNode(Arrayquestion[j]);
+            para.appendChild(paragraph);
+            var para1 = document.createElement("p");
+            para1.appendChild(question);
+            para.appendChild(para1);
+            var answers = document.createElement("select");
+            answers.className = "my_select_box";
+            answers.id="answers"+j;
+
+            for (var i = 1; i <= 5; i++) {
+                var opt = document.createElement("option");
+                opt.value = i;
+                var options = document.createTextNode(i);
+                opt.appendChild(options);
+                answers.appendChild(opt);
+            }
+            //answers.appendChild(opt);
+            para.appendChild(answers)
+            var element = $('.questions')[0];
+            element.appendChild(para);
+        }
+
+
+
+
+        $(".my_select_box").chosen({
+            width: "95%",
+            allow_single_deselect: true
+        });
+    });
+    
+    $("#submit").on("click", function(){
+
+    	
+    	function validate() {
+		  var isValid = true;
+		  $('.form-control').each(function() {
+		    if ( $(this).val() === '' )
+		        isValid = false;
+		  });
+		  return isValid;
+		}
+
+		
+		if (validate() == true)
+		{   
+			
+	    	var userJSON = 
+	    	{
+	    		name: $("#name").val(),
+	    		photo: $("#pic").val(),
+	    		scores: [ $("#answers0").val(),$("#answers1").val(), $("#answers2").val(), $("#answers3").val(), $("#answers4").val(), $("#answers5").val(), $("#answers6").val(), $("#answers7").val(), $("#answers8").val(), $("#answers9").val() ]
+	    	}
+
+            console.log(userJSON);
+	    	
+	    	var currentURL = window.location.origin;
+
+	    	
+	    	$.post("/api/survey", userJSON, function(data){
+
+	    		
+
+	    	});
+		}
+		else
+		{
+			alert("Fields cannot be empty");
+		}
+    	
+    	return false;
+    });
+
+
+    </script>
+</body>
+
+</html>

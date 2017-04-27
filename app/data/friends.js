@@ -1,0 +1,153 @@
+// ===============================================================================
+// DATA
+// Below data will hold all of the user data.
+// Initially we just set it equal to a "dummy" user.
+// ===============================================================================
+
+var userData = [
+{
+  "name":"Lisa",
+  "photo":"http://loremflickr.com/320/240/woman",
+  "scores":[
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ]
+},
+{
+  "name":"Mary",
+  "photo":"http://loremflickr.com/320/240/woman",
+  "scores":[
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2
+    ]
+},
+{
+  "name":"Rahul",
+  "photo":"http://loremflickr.com/320/240/man",
+  "scores":[
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2
+    ]
+},
+{
+  "name":"Tom",
+  "photo":"http://loremflickr.com/320/240/man",
+    "scores":[
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2
+    ]
+},
+{
+  "name":"Bob",
+  "photo":"http://loremflickr.com/320/240/man",
+     "scores":[
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+},
+{
+  "name":"Dan",
+  "photo":"http://loremflickr.com/320/240/man",
+   "scores":[
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+},{
+  "name":"Steve",
+  "photo":"http://loremflickr.com/320/240/man",
+     "scores":[
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+},{
+  "name":"Ella",
+  "photo":"http://loremflickr.com/320/240/woman",
+      "scores":[
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+},{
+  "name":"Emma",
+  "photo":"http://loremflickr.com/320/240/woman",
+       "scores":[
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+}
+];
+
+
+//Exporting the array. This makes it accessible to other files using require.
+module.exports = userData;
