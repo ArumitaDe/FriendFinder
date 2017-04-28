@@ -40,8 +40,17 @@ body
         <input type="text" name="" id="pic" class="form-control">
         <hr>
         <form class="questions"></form>
+        <br><br>
         <button type="button" class="btn btn-primary" id="submit">Submit</button>
+        <br><br>
+          <p>
+          <a href="/api"> 
+          <b> API Friends List </b></a>
+          <a href="https://github.com/ArumitaDe/FriendFinder"> 
+          <b> Github </b></a>
+          </p>
     </div>
+
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -147,9 +156,6 @@ body
                 if(data) console.log(data);
                 alert(data.name,data.photo);
                 document.getElementById('matchName').innerHTML=data.name;
-                //var text=document.createTextNode('data.name');
-                
-                document.createTextNode('data.name');
                 document.getElementById('matchPic').src=data.photo;
                 $("#myModal").modal('toggle');
 	    	});
